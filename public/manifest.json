@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Hardword",
+  "version": "0.0.1",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAppPFrmR/C+dJFMZdMG2jpEKVag9NMS28M9FGjI16oW6yN/P9Eh99qaj0OJAH9SmdoIRNcDaF3QtJGMXzRc4QTw+6zx3Q8hS/3JHmAiXzgbgZyMT7G7JvClnacDWjvm0jO2xxD28dHWiX79MMAUEHohBjTMISQQ7x3D9+LJW0VW0Jc+widHvbWEvxRE7phj/iL4W9ejGNADBTTCi5AoxIyo11xr7Ahjd2SzZUvmKctxkovAmoACRlKiidNo9iMLpqEtxfY3AMCb6HZgP/5VMvMlJmN+Xb8l2/PeKwpZjukqV7TdPrLayqTBnvSM02sp+xQvve223zRlak7BRBwpqpsQIDAQAB",
+  "description": "It is an extension that helps to explain hardwords in the webpage itself.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "scripting",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-preflight.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hardword Settings"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "minimum_chrome_version": "116"
+}
