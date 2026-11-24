@@ -1,7 +1,6 @@
-// SilentGuard Shield — Background Service Worker
 /// <reference types="chrome" />
 
-import ExtensionConfig from "../config";
+import ExtensionConfig from "./config";
 
 // ── Simplify word ─────────────────────────────────────────────────────────────
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
