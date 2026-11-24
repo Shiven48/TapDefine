@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hardword Settings</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="appContent" style="display: none">
+        <!-- Header -->
+        <header>
+          <div class="logo">
+            <span class="logo-text">Hardword</span>
+          </div>
+          <div class="header-badges">
+            <div class="status-badge">
+              <span
+                class="status-dot"
+                id="engineStatusDot"
+                style="background-color: red"
+              ></span>
+              <span class="status-text" id="headerStatus">Inactive</span>
+            </div>
+            <div id="modeBadge" class="mode-badge"></div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+          <!-- Options palette -->
+          <div class="options">
+
+            <!-- Formal -->
+            <div class="option">
+              <span class="option-title">Formal</span>
+              <label class="pill-toggle">
+                <input type="checkbox" id="optFormal" />
+                <span class="pill-track"></span>
+              </label>
+            </div>
+
+            <!-- Simple -->
+            <div class="option">
+              <span class="option-title">Simple</span>
+              <label class="pill-toggle">
+                <input type="checkbox" id="optSimple" />
+                <span class="pill-track"></span>
+              </label>
+            </div>
+
+            <!-- Storage -->
+            <div class="option">
+              <span class="option-title">Storage</span>
+              <label class="pill-toggle">
+                <input type="checkbox" id="optStorage" />
+                <span class="pill-track"></span>
+              </label>
+            </div>
+          </div>
+        </main>
+        <!-- Version Info -->
+        <div class="version-info">
+          <span id="versionDisplay">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>
