@@ -1,6 +1,6 @@
 import { ExtensionConfig } from "../config";
 
-const STORAGE_KEY = "paletteOptions";
+const STORAGE_KEY = ExtensionConfig.storage.local.paletteOptionsKey as string;
 
 interface OptionsPaletteState {
   storage: boolean;
@@ -16,12 +16,6 @@ const OPTION_CHECKBOX_IDS: Record<OptionKey, string> = {
   simple:  'optSimple',
 };
 
-const DEFAULT_STATE: OptionsPaletteState = {
-  storage: true,
-  formal:  true,
-  simple:  true,
-};
-
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function readFromStorage(): Promise<OptionsPaletteState> {
@@ -34,9 +28,9 @@ function readFromStorage(): Promise<OptionsPaletteState> {
       }
 
       if (raw && typeof raw === 'object') {
-        resolve({ ...DEFAULT_STATE, ...raw } as OptionsPaletteState);
+        resolve({ ...ExtensionConfig.defaults.paletteOptions, ...raw } as OptionsPaletteState);
       } else {
-        resolve({ ...DEFAULT_STATE });
+        resolve({ ...ExtensionConfig.defaults.paletteOptions });
       }
     });
   });
