@@ -39,9 +39,17 @@ export const ExtensionConfig = {
     if (!IS_PRODUCTION) console.warn('[HARDWORD_WARN]', ...args);
   },
 
+  defaults: {
+    paletteOptions: {
+      storage: true,
+      formal: true,
+      simple: true,
+    },
+  },
+
   storage: {
     local: {
-      paletteOptions: "paletteOptions"
+      paletteOptionsKey: "paletteOptionsKey"
     }
   }
 
