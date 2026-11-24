@@ -48,9 +48,9 @@ export default defineConfig({
         warn(warning);
       },
       input: {
-        popup:              resolve(__dirname, 'src/ui/popup.html'),
-        background:         resolve(__dirname, 'src/background/background.ts'),
-        'content-preflight':resolve(__dirname, 'src/content-preflight.ts'),
+        popup:               resolve(__dirname, 'src/ui/popup.html'),
+        background:          resolve(__dirname, 'src/background/background.ts'),
+        'content-preflight': resolve(__dirname, 'src/content-preflight.ts'),
       },
       output: {
         entryFileNames: '[name].js',
