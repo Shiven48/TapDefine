@@ -49,7 +49,7 @@ export default defineConfig({
       },
       input: {
         popup:               resolve(__dirname, 'src/ui/popup.html'),
-        background:          resolve(__dirname, 'src/background/background.ts'),
+        background:          resolve(__dirname, 'src/background.ts'),
         'content-preflight': resolve(__dirname, 'src/content-preflight.ts'),
       },
       output: {
