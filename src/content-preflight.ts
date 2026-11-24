@@ -1,9 +1,11 @@
 /// <reference types="chrome" />
 
+declare var ExtensionConfig: any;
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 interface SimplifyRequest {
-  action: 'SIMPLIFY_WORD';
+  action: 'SIMPLIFY';
   word: string;
 }
 
@@ -135,17 +137,17 @@ function getSelectedText(): string {
 }
 
 function sendToBackground(word: string): void {
-  const msg: SimplifyRequest = { action: 'SIMPLIFY_WORD', word };
+  const msg: SimplifyRequest = { action: 'SIMPLIFY', word };
   try {
     chrome.runtime.sendMessage(msg, (response) => {
       if (chrome.runtime.lastError) {
-        console.error('[Hardword] sendMessage error:', chrome.runtime.lastError.message);
+        ExtensionConfig.logError('[Hardword] sendMessage error:', chrome.runtime.lastError.message);
         return;
       }
-      console.log('[Hardword] Background response:', response);
+      ExtensionConfig.log('[Hardword] Background response:', response);
     });
   } catch (err) {
-    console.error('[Hardword] Runtime error sending message:', err);
+    ExtensionConfig.logError('[Hardword] Runtime error sending message:', err);
   }
 }
 
@@ -161,7 +163,6 @@ function handleSelectionChange(): void {
   const range = sel.getRangeAt(0);
   const rect = range.getBoundingClientRect();
 
-  // If rect has zero dimensions (collapsed/hidden), don't show
   if (rect.width === 0 && rect.height === 0) {
     hideTooltip();
     return;
@@ -202,7 +203,7 @@ function initSelectionListener(): void {
 // ── Content Script Main ────────────────────────────────────────────────────────
 
 (function main() {
-  console.log('[Hardword] Content script initialized');
+  ExtensionConfig.log('[Hardword] Content script initialized');
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSelectionListener);
   } else {
