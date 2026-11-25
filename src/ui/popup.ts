@@ -44,27 +44,26 @@ function attachToggleListeners(options: OptionsPaletteState): void {
 }
 
 function updateSWStatusBadge(alive: boolean): void {
-  const dot = document.getElementById(SW_STATUS_IDS.dot) as HTMLDivElement | null;
+  const dot = document.getElementById(SW_STATUS_IDS.dot) as HTMLSpanElement | null;
   const text = document.getElementById(SW_STATUS_IDS.text) as HTMLSpanElement | null;
   const badge = document.getElementById(SW_STATUS_IDS.badge) as HTMLDivElement | null;
 
   if (!dot || !text || !badge) return;
 
-  // 1. Remove both states first
-  dot.classList.remove('status-green', 'status-amber');
+  // Remove existing state classes
   badge.classList.remove('is-active', 'is-inactive');
+  dot.classList.remove('status-green', 'status-amber');
 
-  // 2. Apply the correct state
   if (alive) {
-    dot.classList.add('status-green');
     badge.classList.add('is-active');
+    dot.classList.add('status-green');
     text.textContent = 'Active';
-    text.style.color = '#22c55e'; // or var(--primary)
+    text.style.color = '';
   } else {
-    dot.classList.add('status-amber');
     badge.classList.add('is-inactive');
+    dot.classList.add('status-amber');
     text.textContent = 'Inactive';
-    text.style.color = '#f59e0b';
+    text.style.color = '';
   }
 }
 

@@ -20,7 +20,6 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
         return true;
 
     case 'PING':
-      ExtensionConfig.log('received PING');
       sendResponse({ alive: true });
       return false;
 
