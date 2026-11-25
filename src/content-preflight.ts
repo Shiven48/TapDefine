@@ -5,6 +5,7 @@ declare var ExtensionConfig: any;
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 interface SimplifyRequest {
+  target: 'SW',
   action: 'SIMPLIFY';
   word: string;
 }
@@ -137,7 +138,7 @@ function getSelectedText(): string {
 }
 
 function sendToBackground(word: string): void {
-  const msg: SimplifyRequest = { action: 'SIMPLIFY', word };
+  const msg: SimplifyRequest = { target:'SW',action: 'SIMPLIFY', word };
   try {
     chrome.runtime.sendMessage(msg, (response) => {
       if (chrome.runtime.lastError) {
