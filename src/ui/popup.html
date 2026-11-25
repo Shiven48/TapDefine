@@ -3,68 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hardword Settings</title>
+    <title>Hardword</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div class="container">
-      <div id="appContent" style="display: none">
-        <!-- Header -->
-        <header>
-          <div class="logo">
-            <span class="logo-text">Hardword</span>
-          </div>
-          <div class="header-badges">
-            <div class="status-badge">
-              <span
-                class="status-dot"
-                id="engineStatusDot"
-                style="background-color: red"
-              ></span>
-              <span class="status-text" id="headerStatus">Inactive</span>
-            </div>
-            <div id="modeBadge" class="mode-badge"></div>
-          </div>
-        </header>
-
-        <!-- Main Content -->
-        <main>
-          <!-- Options palette -->
-          <div class="options">
-
-            <!-- Formal -->
-            <div class="option">
-              <span class="option-title">Formal</span>
-              <label class="pill-toggle">
-                <input type="checkbox" id="optFormal" />
-                <span class="pill-track"></span>
-              </label>
-            </div>
-
-            <!-- Simple -->
-            <div class="option">
-              <span class="option-title">Simple</span>
-              <label class="pill-toggle">
-                <input type="checkbox" id="optSimple" />
-                <span class="pill-track"></span>
-              </label>
-            </div>
-
-            <!-- Storage -->
-            <div class="option">
-              <span class="option-title">Storage</span>
-              <label class="pill-toggle">
-                <input type="checkbox" id="optStorage" />
-                <span class="pill-track"></span>
-              </label>
-            </div>
-          </div>
-        </main>
-        <!-- Version Info -->
-        <div class="version-info">
-          <span id="versionDisplay">v1.0.0</span>
+    <div id="appContent" class="popup" style="display: none">
+      <!-- Header -->
+      <header class="header">
+        <div class="brand">
+          <span class="brand-name">Hardword</span>
         </div>
-      </div>
+        <div class="status-badge" id="swStatusBadge">
+          <span class="status-dot" id="swStatusDot"></span>
+          <span class="status-text" id="swStatusText">Inactive</span>
+        </div>
+      </header>
+
+      <!-- Toggle Options -->
+      <section class="options-group">
+        <div class="option-item">
+          <div class="option-meta">
+            <span class="option-label">Formal</span>
+            <span class="option-desc">Professional, academic tone</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="optFormal" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="option-item">
+          <div class="option-meta">
+            <span class="option-label">Simple</span>
+            <span class="option-desc">Everyday plain explanations</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="optSimple" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="option-item">
+          <div class="option-meta">
+            <span class="option-label">Storage</span>
+            <span class="option-desc">Save history of explained words</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="optStorage" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <span id="versionDisplay">v0.0.1</span>
+      </footer>
     </div>
 
     <script type="module" src="./popup.ts"></script>
