@@ -55,4 +55,7 @@ export const ExtensionConfig = {
 
 } as const;
 
+export type ConfigKeys = keyof typeof ExtensionConfig;
+export type LocalKey = keyof typeof ExtensionConfig.storage.local;
+
 export default ExtensionConfig;
